@@ -12,8 +12,7 @@
     @media screen and (min-width: @@bp) {@rules();};
 }
 .mq(from;@min;@rules;) {
-    @bp: '@{mq--prefix}@{min}';
-    @media screen and (min-width: @@bp) {@rules();};
+    .mq(@min;@rules);
 }
 .mq(to;@max;@rules;) {
     @bp: '@{mq--prefix}@{max}';
