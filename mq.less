@@ -1,0 +1,26 @@
+@mq--prefix:        'mq--';
+@mq--phone:         320px;
+@mq--phone-wide:    480px;
+@mq--tablet:        640px;
+@mq--tablet-wide:   768px;
+@mq--desktop:       1024px;
+@mq--desktop-wide:  1224px;
+
+.mq(...) {}
+.mq(@min;@rules;) {
+    @bp: '@{mq--prefix}@{min}';
+    @media screen and (min-width: @@bp) {@rules();};
+}
+.mq(from;@min;@rules;) {
+    @bp: '@{mq--prefix}@{min}';
+    @media screen and (min-width: @@bp) {@rules();};
+}
+.mq(to;@max;@rules;) {
+    @bp: '@{mq--prefix}@{max}';
+    @media screen and (max-width: @@bp) {@rules();};
+}
+.mq(from;@min;to;@max;@rules;) {
+    @minBp: '@{mq--prefix}@{min}';
+    @maxBp: '@{mq--prefix}@{max}';
+    @media screen and (min-width: @@minBp) and (max-width: @@maxBp) {@rules();};
+}
